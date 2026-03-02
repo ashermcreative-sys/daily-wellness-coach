@@ -132,6 +132,92 @@ export type Database = {
           },
         ]
       }
+      supplement_logs: {
+        Row: {
+          created_at: string
+          date: string
+          id: string
+          supplement_id: string
+          taken: boolean
+          taken_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          id?: string
+          supplement_id: string
+          taken?: boolean
+          taken_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: string
+          supplement_id?: string
+          taken?: boolean
+          taken_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "supplement_logs_supplement_id_fkey"
+            columns: ["supplement_id"]
+            isOneToOne: false
+            referencedRelation: "supplements"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "supplement_logs_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      supplements: {
+        Row: {
+          created_at: string
+          dosage: string | null
+          id: string
+          is_active: boolean
+          name: string
+          time_of_day: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          dosage?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          time_of_day?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          dosage?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          time_of_day?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "supplements_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       users: {
         Row: {
           created_at: string
