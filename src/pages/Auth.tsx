@@ -54,17 +54,6 @@ const Auth = () => {
       if (error) throw error;
 
       if (data.user) {
-        // Create user record
-        const { error: userError } = await supabase
-          .from('users')
-          .insert({
-            id: data.user.id,
-            email: email,
-            name: name
-          });
-
-        if (userError) throw userError;
-
         toast.success('Account created! You can now sign in.');
         setIsSignUp(false);
       }

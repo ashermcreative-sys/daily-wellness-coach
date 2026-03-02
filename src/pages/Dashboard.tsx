@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ReadinessScores } from "@/components/ReadinessScores";
 import { CheckInForm } from "@/components/CheckInForm";
 import { AICoaching } from "@/components/AICoaching";
+import { SupplementTracker } from "@/components/SupplementTracker";
 import { useHealthData } from "@/hooks/useHealthData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LogOut, History } from "lucide-react";
@@ -130,6 +131,9 @@ const Dashboard = () => {
             </TabsContent>
           </Tabs>
         </div>
+
+        {/* Supplements Tracker */}
+        <SupplementTracker userId={userId} />
 
         {/* AI Coaching */}
         <AICoaching summary={todaySummary} />
